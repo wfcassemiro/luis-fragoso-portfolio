@@ -134,22 +134,22 @@
   .hero{ padding:clamp(3rem,8vw,6rem) 0 clamp(2.5rem,6vw,4rem); }
   .hero-grid{ display:grid; grid-template-columns: minmax(0,1fr) auto; gap:clamp(2rem,5vw,4rem); align-items:start; }
   .portrait-frame{
-    width:clamp(140px,18vw,190px);
-    aspect-ratio:4/5;
+    width:clamp(200px,26vw,300px);
+    aspect-ratio:3/4;
     border:1px solid var(--line);
-    padding:8px;
+    padding:10px;
     background:var(--card-bg);
     box-shadow:var(--shadow);
     justify-self:end;
   }
   .portrait-frame .inner{ width:100%; height:100%; overflow:hidden; position:relative; background:var(--paper-raised); }
   .portrait-frame img{
-    width:100%; height:100%; object-fit:cover; object-position:center 20%;
-    filter:grayscale(85%) sepia(8%) contrast(1.04) brightness(1.02);
+    width:100%; height:100%; object-fit:cover; object-position:center 14%;
+    filter:contrast(1.03) saturate(1.04);
   }
   @media (max-width:760px){
     .hero-grid{ grid-template-columns:1fr; }
-    .portrait-frame{ justify-self:start; width:120px; }
+    .portrait-frame{ justify-self:start; width:170px; }
   }
   .hero .eyebrow{ margin-bottom:1.1rem; }
   .hero h1{
@@ -209,19 +209,39 @@
   }
 
   .publishers{
-    margin-top:1.6rem;
-    padding-top:1.2rem;
+    margin-top:2rem;
+    padding-top:1.4rem;
   }
-  .publishers .eyebrow{ margin-bottom:.7rem; }
-  .pub-row{
-    display:flex; flex-wrap:wrap; gap:.5rem 0;
-    font-family:"IBM Plex Mono", monospace;
-    font-size:.78rem;
-    color:var(--ink-soft);
-    letter-spacing:.01em;
+  .publishers .eyebrow{ margin-bottom:.9rem; }
+  .pub-scroll{
+    display:flex;
+    overflow-x:auto;
+    scroll-snap-type:x proximity;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:thin;
+    margin:0 clamp(-1.25rem,-4vw,-3rem);
+    padding:.3rem clamp(1.25rem,4vw,3rem) 1rem;
+    -webkit-mask-image:linear-gradient(to right, transparent 0, #000 clamp(1.25rem,4vw,3rem), #000 calc(100% - 2.5rem), transparent 100%);
+    mask-image:linear-gradient(to right, transparent 0, #000 clamp(1.25rem,4vw,3rem), #000 calc(100% - 2.5rem), transparent 100%);
   }
-  .pub-row span:not(.sep){ white-space:nowrap; }
-  .pub-row .sep{ margin:0 .65rem; color:var(--brass); }
+  .pub-item{
+    flex:0 0 auto;
+    scroll-snap-align:start;
+    padding:0 clamp(1.4rem,3vw,2.2rem);
+    border-right:1px solid var(--line);
+    display:flex; align-items:center;
+  }
+  .pub-item:last-child{ border-right:none; padding-right:clamp(1.25rem,4vw,3rem); }
+  .pub-item:first-child{ padding-left:0; }
+  .pub-item span{
+    font-family:"Fraunces", serif;
+    font-style:italic;
+    font-weight:480;
+    font-size:clamp(1.05rem,2.4vw,1.5rem);
+    color:var(--ink);
+    white-space:nowrap;
+    text-wrap:nowrap;
+  }
 
   .btn-ghost{
     display:inline-flex; align-items:center; gap:.4rem;
@@ -394,7 +414,7 @@
       <a href="#docencia">Docência</a>
     </nav>
     <div class="top-actions">
-      <a class="btn-ghost" href="mailto:luisgfragoso@gmail.com?subject=Solicita%C3%A7%C3%A3o%20de%20curr%C3%ADculo">Solicitar currículo</a>
+      <a class="btn-ghost" href="assets/curriculo-luis-gonzaga-fragoso.pdf" download>Baixar currículo</a>
       <a class="mail-btn" href="mailto:luisgfragoso@gmail.com">Contato</a>
     </div>
   </div>
@@ -424,14 +444,14 @@
 
     <div class="publishers">
       <p class="eyebrow">Traduziu para</p>
-      <div class="pub-row">
-        <span>Editora Vozes</span><span class="sep">·</span>
-        <span>Best-Seller (Grupo Record)</span><span class="sep">·</span>
-        <span>Summus Editorial</span><span class="sep">·</span>
-        <span>Nova Fronteira</span><span class="sep">·</span>
-        <span>Globo Livros</span><span class="sep">·</span>
-        <span>Larousse</span><span class="sep">·</span>
-        <span>Publifolha</span>
+      <div class="pub-scroll">
+        <div class="pub-item"><span>Editora Vozes</span></div>
+        <div class="pub-item"><span>Best-Seller (Grupo Record)</span></div>
+        <div class="pub-item"><span>Summus Editorial</span></div>
+        <div class="pub-item"><span>Nova Fronteira</span></div>
+        <div class="pub-item"><span>Globo Livros</span></div>
+        <div class="pub-item"><span>Larousse</span></div>
+        <div class="pub-item"><span>Publifolha</span></div>
       </div>
     </div>
   </div>
@@ -547,7 +567,7 @@
     <p>Para propostas de tradução, pareceres editoriais, copidesque ou revisão de textos, escreva diretamente.</p>
     <div class="contact-actions">
       <a class="big-mail" href="mailto:luisgfragoso@gmail.com">luisgfragoso@gmail.com →</a>
-      <a class="btn-outline-inverse" href="mailto:luisgfragoso@gmail.com?subject=Solicita%C3%A7%C3%A3o%20de%20curr%C3%ADculo">Solicitar currículo</a>
+      <a class="btn-outline-inverse" href="assets/curriculo-luis-gonzaga-fragoso.pdf" download>Baixar currículo (PDF)</a>
     </div>
   </div>
 </div>
