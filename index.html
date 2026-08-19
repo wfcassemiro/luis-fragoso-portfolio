@@ -369,15 +369,28 @@
     border:1px solid var(--line); border-radius:99px; padding:.4rem .85rem; color:var(--ink-soft);
   }
 
-  /* contact band */
+  /* ---------- Contact Band & Form ---------- */
   .contact-band{
     background:var(--accent); color:var(--accent-ink);
     border-top:1px solid var(--line);
   }
-  .contact-band .wrap{ padding:clamp(3rem,7vw,5rem) clamp(1.25rem,4vw,3rem); }
+  .contact-band .wrap{ 
+    padding:clamp(3rem,7vw,5rem) clamp(1.25rem,4vw,3rem);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+  @media (max-width: 800px){
+    .contact-band .wrap {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
   .contact-band h2{ color:var(--accent-ink); font-size:clamp(1.8rem,4vw,2.6rem); }
-  .contact-band .eyebrow{ color:color-mix(in srgb, var(--accent-ink) 70%, transparent); }
+  .contact-band .eyebrow{ color:color-mix(in srgb, var(--accent-ink) 70%, transparent); margin-bottom: .5rem; }
   .contact-band p{ max-width:50ch; color:color-mix(in srgb, var(--accent-ink) 88%, transparent); margin:1rem 0 1.8rem; }
+  
   a.big-mail{
     display:inline-flex; align-items:baseline; gap:.6rem;
     font-family:"IBM Plex Mono", monospace;
@@ -388,6 +401,65 @@
     padding-bottom:.3rem;
   }
   a.big-mail:hover{ border-color:var(--accent-ink); }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    background: color-mix(in srgb, var(--accent-ink) 5%, transparent);
+    padding: 2rem;
+    border-radius: var(--radius);
+    border: 1px solid color-mix(in srgb, var(--accent-ink) 15%, transparent);
+  }
+  .contact-form label {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: .85rem;
+    color: var(--accent-ink);
+    display: block;
+    margin-bottom: .4rem;
+  }
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea {
+    width: 100%;
+    padding: .85rem;
+    border: 1px solid color-mix(in srgb, var(--accent-ink) 35%, transparent);
+    border-radius: var(--radius);
+    background: transparent;
+    color: var(--accent-ink);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.2s ease, outline 0.2s ease;
+  }
+  .contact-form input:focus,
+  .contact-form select:focus,
+  .contact-form textarea:focus {
+    outline: 2px solid var(--brass);
+    border-color: var(--brass);
+  }
+  .contact-form select option {
+    background: var(--accent);
+    color: var(--accent-ink);
+  }
+  .contact-form button[type="submit"] {
+    background: var(--accent-ink);
+    color: var(--accent);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: .85rem;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    align-self: flex-start;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    font-weight: 600;
+  }
+  .contact-form button[type="submit"]:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+  }
 
   footer{ padding:1.6rem clamp(1.25rem,4vw,3rem); }
   footer .wrap{ display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap; font-family:"IBM Plex Mono", monospace; font-size:.68rem; color:var(--ink-faint); letter-spacing:.03em; }
@@ -412,7 +484,7 @@
     </nav>
     <div class="top-actions">
       <a class="btn-ghost" href="assets/curriculo-luis-gonzaga-fragoso.pdf" download>Baixar currículo</a>
-      <a class="mail-btn" href="mailto:luisgfragoso@gmail.com">Contato</a>
+      <a class="mail-btn" href="#contato">Entre em contato</a>
     </div>
   </div>
 </header>
@@ -557,15 +629,51 @@
   </section>
 </main>
 
-<div class="contact-band">
+<div class="contact-band" id="contato">
   <div class="wrap">
-    <p class="eyebrow">Contato</p>
-    <h2>Disponível para novos projetos de tradução, pareceres e revisão editorial.</h2>
-    <p>Para propostas de tradução, pareceres editoriais, copidesque ou revisão de textos, escreva diretamente.</p>
-    <div class="contact-actions">
-      <a class="big-mail" href="mailto:luisgfragoso@gmail.com">luisgfragoso@gmail.com →</a>
-      <a class="btn-outline-inverse" href="assets/curriculo-luis-gonzaga-fragoso.pdf" download>Baixar currículo (PDF)</a>
+    <div class="contact-text">
+      <p class="eyebrow">Contato</p>
+      <h2>Disponível para novos projetos de tradução, pareceres e revisão editorial.</h2>
+      <p>Para propostas de tradução, pareceres editoriais, copidesque ou revisão de textos, envie uma mensagem pelo formulário ou escreva diretamente.</p>
+      <div class="contact-actions">
+        <a class="big-mail" href="mailto:luisgfragoso@gmail.com">luisgfragoso@gmail.com →</a>
+        <a class="btn-outline-inverse" href="assets/curriculo-luis-gonzaga-fragoso.pdf" download>Baixar currículo (PDF)</a>
+      </div>
     </div>
+
+    <!-- Formulário de Contato via FormSubmit -->
+    <form class="contact-form" action="https://formsubmit.co/luisgfragoso@gmail.com" method="POST">
+      <!-- Configurações do FormSubmit -->
+      <input type="hidden" name="_subject" value="Novo contato recebido pelo site">
+      <input type="hidden" name="_captcha" value="false">
+      
+      <div>
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="Nome" required>
+      </div>
+      
+      <div>
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="E-mail" required>
+      </div>
+      
+      <div>
+        <label for="assunto">Escolha o assunto:</label>
+        <select id="assunto" name="Assunto" required>
+          <option value="Informações gerais">Informações gerais</option>
+          <option value="Solicitar um orçamento">Solicitar um orçamento</option>
+          <option value="Informações sobre cursos">Informações sobre cursos</option>
+          <option value="Fazer uma parceria">Fazer uma parceria</option>
+        </select>
+      </div>
+      
+      <div>
+        <label for="mensagem">Mensagem</label>
+        <textarea id="mensagem" name="Mensagem" rows="5" required></textarea>
+      </div>
+      
+      <button type="submit">Enviar mensagem</button>
+    </form>
   </div>
 </div>
 
