@@ -1,0 +1,718 @@
+<!doctype html>
+<title>Luis Gonzaga Fragoso — Tradutor</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Luis Gonzaga Fragoso — tradutor de não ficção para Vozes, Best-Seller, Nova Fronteira e outras editoras. Mais de 20 anos traduzindo história, filosofia, biografias e espiritualidade.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,480;0,9..144,600;1,9..144,480;1,9..144,560&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F2EFE6;
+    --paper-raised:#EAE6D9;
+    --ink:#221E18;
+    --ink-soft:#5B5648;
+    --ink-faint:#8B8574;
+    --line:#D9D3C2;
+    --accent:#3B4A34;
+    --accent-ink:#F2F3EC;
+    --accent-soft:#DDE3D6;
+    --brass:#9C7A3C;
+    --card-bg:#FBFAF5;
+    --shadow: 0 1px 2px rgba(34,30,24,.06), 0 8px 24px rgba(34,30,24,.06);
+    --radius: 3px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#1B1D17;
+      --paper-raised:#242620;
+      --ink:#ECE7D9;
+      --ink-soft:#B7AF9C;
+      --ink-faint:#847C6A;
+      --line:#3A3B32;
+      --accent:#8FAE83;
+      --accent-ink:#151810;
+      --accent-soft:#2B3527;
+      --brass:#C9A863;
+      --card-bg:#212319;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 28px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#1B1D17;
+    --paper-raised:#242620;
+    --ink:#ECE7D9;
+    --ink-soft:#B7AF9C;
+    --ink-faint:#847C6A;
+    --line:#3A3B32;
+    --accent:#8FAE83;
+    --accent-ink:#151810;
+    --accent-soft:#2B3527;
+    --brass:#C9A863;
+    --card-bg:#212319;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 28px rgba(0,0,0,.35);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} *{animation:none !important; transition:none !important;} }
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Newsreader", ui-serif, Georgia, "Times New Roman", serif;
+    font-size:1.06rem;
+    line-height:1.6;
+  }
+  ::selection{ background:var(--accent); color:var(--accent-ink); }
+
+  a{ color:inherit; }
+  img{ max-width:100%; display:block; }
+
+  .wrap{ max-width:1180px; margin:0 auto; padding:0 clamp(1.25rem, 4vw, 3rem); }
+
+  .eyebrow{
+    font-family:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    font-size:.72rem;
+    color:var(--ink-faint);
+  }
+
+  h1,h2,h3{ font-family:"Fraunces", ui-serif, Georgia, serif; font-weight:480; letter-spacing:-.01em; text-wrap:balance; margin:0; }
+
+  /* ---------- Top bar ---------- */
+  header.top{
+    position:sticky; top:0; z-index:40;
+    background:color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .top-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:.85rem clamp(1.25rem, 4vw, 3rem);
+    gap:1rem;
+  }
+  .brand{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:.78rem;
+    letter-spacing:.08em;
+    text-decoration:none;
+    white-space:nowrap;
+  }
+  nav.anchors{
+    display:flex; gap:1.4rem;
+    overflow-x:auto;
+    scrollbar-width:none;
+    font-family:"IBM Plex Mono", monospace;
+    font-size:.72rem;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+  }
+  nav.anchors::-webkit-scrollbar{ display:none; }
+  nav.anchors a{ text-decoration:none; color:var(--ink-soft); white-space:nowrap; padding:.3rem 0; border-bottom:1px solid transparent; }
+  nav.anchors a:hover, nav.anchors a:focus-visible{ color:var(--ink); border-color:var(--brass); }
+  a.mail-btn{
+    flex-shrink:0;
+    font-family:"IBM Plex Mono", monospace;
+    font-size:.72rem;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:var(--accent-ink);
+    background:var(--accent);
+    padding:.55rem .9rem;
+    border-radius:var(--radius);
+  }
+  a.mail-btn:hover{ opacity:.88; }
+  .top-actions{ display:flex; align-items:center; gap:.6rem; flex-shrink:0; }
+  @media (max-width:640px){ .top-actions .btn-ghost{ display:none; } }
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--brass); outline-offset:2px; }
+
+  /* ---------- Hero ---------- */
+  .hero{ padding:clamp(3rem,8vw,6rem) 0 clamp(2.5rem,6vw,4rem); }
+  .hero-grid{ display:grid; grid-template-columns: minmax(0,1fr) auto; gap:clamp(2rem,5vw,4rem); align-items:start; }
+  .portrait-frame{
+    width:clamp(140px,18vw,190px);
+    aspect-ratio:4/5;
+    border:1px solid var(--line);
+    padding:8px;
+    background:var(--card-bg);
+    box-shadow:var(--shadow);
+    justify-self:end;
+  }
+  .portrait-frame .inner{ width:100%; height:100%; overflow:hidden; position:relative; background:var(--paper-raised); }
+  .portrait-frame img{
+    width:100%; height:100%; object-fit:cover; object-position:center 20%;
+    filter:grayscale(85%) sepia(8%) contrast(1.04) brightness(1.02);
+  }
+  @media (max-width:760px){
+    .hero-grid{ grid-template-columns:1fr; }
+    .portrait-frame{ justify-self:start; width:120px; }
+  }
+  .hero .eyebrow{ margin-bottom:1.1rem; }
+  .hero h1{
+    font-size:clamp(2.6rem, 6vw, 4.4rem);
+    line-height:.98;
+  }
+  .hero .role{
+    font-family:"IBM Plex Mono", monospace;
+    text-transform:uppercase;
+    letter-spacing:.12em;
+    font-size:.86rem;
+    color:var(--ink-soft);
+    margin-top:.9rem;
+  }
+  .hero .tagline{
+    font-family:"Fraunces", serif;
+    font-style:italic;
+    font-weight:480;
+    font-size:clamp(1.25rem,2.6vw,1.7rem);
+    color:var(--ink);
+    max-width:42ch;
+    margin-top:1.6rem;
+    text-wrap:balance;
+  }
+  .hero p.lead{
+    max-width:56ch;
+    margin-top:1.15rem;
+    color:var(--ink-soft);
+    font-size:1.08rem;
+  }
+
+  .stats{
+    margin-top:2.6rem;
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(9.5rem,1fr));
+    border-top:1px solid var(--line);
+    border-left:1px solid var(--line);
+  }
+  .stat{
+    padding:1.1rem 1.2rem;
+    border-right:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .stat .n{
+    font-family:"Fraunces", serif;
+    font-size:1.9rem;
+    font-weight:560;
+    font-variant-numeric: tabular-nums;
+  }
+  .stat .d{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:.68rem;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    margin-top:.25rem;
+  }
+
+  .publishers{
+    margin-top:1.6rem;
+    padding-top:1.2rem;
+  }
+  .publishers .eyebrow{ margin-bottom:.7rem; }
+  .pub-row{
+    display:flex; flex-wrap:wrap; gap:.5rem 0;
+    font-family:"IBM Plex Mono", monospace;
+    font-size:.78rem;
+    color:var(--ink-soft);
+    letter-spacing:.01em;
+  }
+  .pub-row span:not(.sep){ white-space:nowrap; }
+  .pub-row .sep{ margin:0 .65rem; color:var(--brass); }
+
+  .btn-ghost{
+    display:inline-flex; align-items:center; gap:.4rem;
+    font-family:"IBM Plex Mono", monospace;
+    font-size:.72rem; letter-spacing:.05em; text-transform:uppercase;
+    text-decoration:none; color:var(--ink-soft);
+    border:1px solid var(--line);
+    padding:.5rem .85rem;
+    border-radius:var(--radius);
+    background:transparent;
+  }
+  .btn-ghost:hover{ color:var(--ink); border-color:var(--brass); }
+  .hero-actions{ display:flex; flex-wrap:wrap; gap:.7rem; margin-top:1.6rem; }
+
+  .btn-outline-inverse{
+    display:inline-flex; align-items:center; gap:.5rem;
+    font-family:"IBM Plex Mono", monospace;
+    font-size:.75rem; letter-spacing:.05em; text-transform:uppercase;
+    text-decoration:none; color:var(--accent-ink);
+    border:1px solid color-mix(in srgb, var(--accent-ink) 45%, transparent);
+    padding:.6rem 1rem; border-radius:var(--radius);
+  }
+  .btn-outline-inverse:hover{ border-color:var(--accent-ink); }
+  .contact-actions{ display:flex; flex-wrap:wrap; gap:1.1rem; align-items:center; margin-top:.4rem; }
+
+  /* catalog groups */
+  .catalog-group{ border-bottom:1px solid var(--line); }
+  .catalog-group:first-of-type{ border-top:1px solid var(--line); }
+  .catalog-group summary{
+    list-style:none; cursor:pointer;
+    display:flex; align-items:center; justify-content:space-between; gap:1rem;
+    padding:1.15rem .1rem;
+    font-family:"IBM Plex Mono", monospace;
+    font-size:.78rem; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .catalog-group summary::-webkit-details-marker{ display:none; }
+  .catalog-group summary .chev{ transition:transform .18s ease; color:var(--brass); font-size:.9rem; }
+  .catalog-group[open] summary .chev{ transform:rotate(90deg); }
+  .catalog-group summary:hover{ color:var(--ink); }
+  .catalog-group .grid-catalog{ padding:.4rem 0 1.8rem; }
+
+  /* ---------- Sections ---------- */
+  section{ padding:clamp(3rem,7vw,5.5rem) 0; border-top:1px solid var(--line); }
+  .sec-head{
+    display:grid;
+    grid-template-columns: minmax(0,15rem) minmax(0,1fr);
+    gap:2rem 3rem;
+    margin-bottom:2.4rem;
+    align-items:start;
+  }
+  .sec-head .num{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:.78rem;
+    letter-spacing:.1em;
+    color:var(--brass);
+    text-transform:uppercase;
+  }
+  .sec-head h2{ font-size:clamp(1.6rem,3vw,2.2rem); margin-top:.4rem; }
+  @media (max-width:760px){ .sec-head{ grid-template-columns:1fr; gap:.6rem; } }
+
+  .prose{ max-width:64ch; }
+  .prose p{ margin:0 0 1.05rem; color:var(--ink); }
+  .prose p:last-child{ margin-bottom:0; }
+  .prose h3{ font-size:1.15rem; font-weight:560; margin:1.8rem 0 .7rem; }
+  .prose h3:first-child{ margin-top:0; }
+
+  /* credentials */
+  .cred-list{ list-style:none; margin:0; padding:0; max-width:64ch; }
+  .cred-list li{
+    display:flex; gap:1.1rem; align-items:baseline;
+    padding:.85rem 0; border-bottom:1px solid var(--line);
+  }
+  .cred-list li:first-child{ padding-top:0; }
+  .cred-idx{ font-family:"IBM Plex Mono", monospace; font-size:.75rem; color:var(--ink-faint); flex:0 0 1.6rem; }
+  .cred-text{ flex:1; }
+  .cred-text .yr{ font-family:"IBM Plex Mono", monospace; font-size:.82rem; color:var(--brass); white-space:nowrap; }
+
+  /* featured grid */
+  .grid-featured{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(190px,1fr));
+    gap:1.6rem;
+  }
+  .fcard{
+    background:var(--card-bg);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    display:flex; flex-direction:column;
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .fcard:hover{ transform:translateY(-3px); }
+  .fcard .cov{ aspect-ratio:2/3; background:var(--paper-raised); overflow:hidden; }
+  .fcard .cov img{ width:100%; height:100%; object-fit:cover; }
+  .fcard .body{ padding:.95rem 1rem 1.1rem; }
+  .fcard .ftitle{ font-family:"Fraunces", serif; font-style:italic; font-weight:480; font-size:1.02rem; line-height:1.25; text-wrap:balance; }
+  .fcard .fsub{ font-size:.85rem; color:var(--ink-soft); margin-top:.25rem; }
+  .fcard .fmeta{ font-family:"IBM Plex Mono", monospace; font-size:.68rem; letter-spacing:.03em; color:var(--ink-faint); margin-top:.6rem; text-transform:uppercase; }
+
+  /* catalog grid */
+  .grid-catalog{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(128px,1fr));
+    gap:1.1rem 1rem;
+  }
+  .ccard .cov{ aspect-ratio:2/3; background:var(--paper-raised); border:1px solid var(--line); border-radius:2px; overflow:hidden; }
+  .ccard .cov img{ width:100%; height:100%; object-fit:cover; }
+  .ccard .ctitle{ font-size:.82rem; line-height:1.25; margin-top:.5rem; font-weight:500; }
+  .ccard .cmeta{ font-family:"IBM Plex Mono", monospace; font-size:.62rem; color:var(--ink-faint); margin-top:.2rem; line-height:1.4; }
+
+  /* pareceres / revisão ledger */
+  .ledger{ list-style:none; margin:0; padding:0; max-width:68ch; }
+  .ledger li{
+    display:grid; grid-template-columns:minmax(0,1fr) auto; gap:1rem;
+    padding:1.1rem 0; border-bottom:1px solid var(--line);
+    align-items:baseline;
+  }
+  .ledger li:first-child{ padding-top:0; }
+  .ledger .lt{ }
+  .ledger .lt b{ font-weight:560; }
+  .ledger .ly{ font-family:"IBM Plex Mono", monospace; font-size:.76rem; color:var(--brass); white-space:nowrap; }
+
+  .residencies{ display:flex; flex-wrap:wrap; gap:.6rem; margin-top:1.4rem; }
+  .residencies span{
+    font-family:"IBM Plex Mono", monospace; font-size:.72rem; letter-spacing:.03em;
+    border:1px solid var(--line); border-radius:99px; padding:.4rem .85rem; color:var(--ink-soft);
+  }
+
+  /* contact band */
+  .contact-band{
+    background:var(--accent); color:var(--accent-ink);
+    border-top:1px solid var(--line);
+  }
+  .contact-band .wrap{ padding:clamp(3rem,7vw,5rem) clamp(1.25rem,4vw,3rem); }
+  .contact-band h2{ color:var(--accent-ink); font-size:clamp(1.8rem,4vw,2.6rem); }
+  .contact-band .eyebrow{ color:color-mix(in srgb, var(--accent-ink) 70%, transparent); }
+  .contact-band p{ max-width:50ch; color:color-mix(in srgb, var(--accent-ink) 88%, transparent); margin:1rem 0 1.8rem; }
+  a.big-mail{
+    display:inline-flex; align-items:baseline; gap:.6rem;
+    font-family:"IBM Plex Mono", monospace;
+    font-size:clamp(1.05rem,2.4vw,1.35rem);
+    color:var(--accent-ink);
+    text-decoration:none;
+    border-bottom:1px solid color-mix(in srgb, var(--accent-ink) 45%, transparent);
+    padding-bottom:.3rem;
+  }
+  a.big-mail:hover{ border-color:var(--accent-ink); }
+
+  footer{ padding:1.6rem clamp(1.25rem,4vw,3rem); }
+  footer .wrap{ display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap; font-family:"IBM Plex Mono", monospace; font-size:.68rem; color:var(--ink-faint); letter-spacing:.03em; }
+  footer a{ text-decoration:none; color:inherit; }
+  footer a:hover{ color:var(--ink); }
+
+  .reveal{ opacity:0; transform:translateY(10px); transition:opacity .5s ease, transform .5s ease; }
+  .reveal.in{ opacity:1; transform:none; }
+</style>
+
+<header class="top">
+  <div class="top-inner">
+    <a class="brand" href="#top">L. G. FRAGOSO</a>
+    <nav class="anchors" aria-label="Seções">
+      <a href="#sobre">Sobre</a>
+      <a href="#formacao">Formação</a>
+      <a href="#destaque">Destaque</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#pareceres">Pareceres</a>
+      <a href="#revisao">Revisão</a>
+      <a href="#docencia">Docência</a>
+    </nav>
+    <div class="top-actions">
+      <a class="btn-ghost" href="mailto:luisgfragoso@gmail.com?subject=Solicita%C3%A7%C3%A3o%20de%20curr%C3%ADculo">Solicitar currículo</a>
+      <a class="mail-btn" href="mailto:luisgfragoso@gmail.com">Contato</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div class="hero-grid">
+      <div class="hero-main">
+        <p class="eyebrow">Ex libris · portfólio editorial</p>
+        <h1>Luis Gonzaga<br>Fragoso</h1>
+        <p class="role">Tradutor · Professor · Pesquisador</p>
+        <p class="tagline">Rigor filológico e sensibilidade na tradução de textos de não ficção.</p>
+        <p class="lead">Master of Arts em Língua e Literatura Inglesas pela Oxford Brookes University e Bacharelado em Letras/Português pela Universidade de São Paulo. Mais de duas décadas de experiência traduzindo obras de não ficção para grandes editoras do Brasil.</p>
+      </div>
+      <div class="portrait-frame">
+        <div class="inner"><img src="assets/photo.jpg" alt="Retrato de Luis Gonzaga Fragoso" loading="lazy"></div>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="n">20+</div><div class="d">Anos de tradução editorial</div></div>
+      <div class="stat"><div class="n">41</div><div class="d">Obras no catálogo</div></div>
+      <div class="stat"><div class="n">7</div><div class="d">Selos editoriais atendidos</div></div>
+      <div class="stat"><div class="n">3</div><div class="d">Países de imersão cultural</div></div>
+    </div>
+
+    <div class="publishers">
+      <p class="eyebrow">Traduziu para</p>
+      <div class="pub-row">
+        <span>Editora Vozes</span><span class="sep">·</span>
+        <span>Best-Seller (Grupo Record)</span><span class="sep">·</span>
+        <span>Summus Editorial</span><span class="sep">·</span>
+        <span>Nova Fronteira</span><span class="sep">·</span>
+        <span>Globo Livros</span><span class="sep">·</span>
+        <span>Larousse</span><span class="sep">·</span>
+        <span>Publifolha</span>
+      </div>
+    </div>
+  </div>
+
+  <section id="sobre">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><p class="num">01 · Perfil</p></div>
+        <h2>Trajetória dedicada à palavra escrita e ao mercado editorial</h2>
+      </div>
+      <div class="prose reveal">
+        <p>Luis Gonzaga Fragoso é tradutor, professor, revisor e pesquisador com sólida formação acadêmica. Completou seu Master of Arts em Língua, Literatura e Cultura Inglesas na Oxford Brookes University (Inglaterra) e o Bacharelado em Letras/Português na Universidade de São Paulo (USP).</p>
+        <p>Sua trajetória abrange a tradução de dezenas de obras de grande relevância nas áreas de história, música, sociologia, história da filosofia, biografias e espiritualidade, publicadas por prestigiosas casas editoriais como Editora Vozes, Best-Seller (Grupo Record), Summus Editorial, Nova Fronteira, Globo Livros, Larousse e Publifolha. Traduziu três obras de ficção.</p>
+        <p>Além de tradutor, atua como parecerista editorial na avaliação de originais estrangeiros, na preparação de textos (copidesque) e na revisão de textos acadêmicos e de livros para o mercado editorial. Também ministra cursos e oficinas com base na canção popular brasileira, em instituições como o SESC e a Biblioteca Mário de Andrade. Durante 20 anos, atuou como professor de língua inglesa.</p>
+
+        <h3>Perfil profissional</h3>
+        <p>Completou o Master of Arts em Língua, Literatura e Cultura Inglesas na Oxford Brookes University (Inglaterra) e também o Bacharelado em Letras/Português na Universidade de São Paulo (USP). Tem sólida trajetória no mercado editorial brasileiro, com dezenas de obras traduzidas nas áreas de história, música, sociologia, história da filosofia, biografias e espiritualidade, entre outras. Traduziu três obras de ficção.</p>
+        <p>Sua atuação profissional inclui a emissão de pareceres editoriais na avaliação de originais estrangeiros, a preparação de originais (copidesque) e a revisão de textos acadêmicos e de livros para o mercado editorial. Também ministra cursos e oficinas com base na canção popular brasileira, em instituições como o SESC e a Biblioteca Mário de Andrade. Atuou como professor de língua inglesa durante 20 anos.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="formacao">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><p class="num">02 · Formação</p></div>
+        <h2>Formação acadêmica e credenciais</h2>
+      </div>
+      <ol class="cred-list reveal" id="cred-list"></ol>
+    </div>
+  </section>
+
+  <section id="destaque">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><p class="num">03 · Destaque</p></div>
+        <h2>Breve seleção de obras traduzidas</h2>
+      </div>
+      <div class="grid-featured reveal" id="featured-grid"></div>
+    </div>
+  </section>
+
+  <section id="catalogo">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><p class="num">04 · Catálogo</p></div>
+        <h2>Catálogo completo de traduções publicadas ou no prelo</h2>
+      </div>
+      <div class="reveal" id="catalog-groups">
+        <details class="catalog-group" open>
+          <summary><span>2024–2026 · recentes e no prelo (11 obras)</span><span class="chev">▸</span></summary>
+          <div class="grid-catalog" id="catalog-grid-a"></div>
+        </details>
+        <details class="catalog-group">
+          <summary><span>2017–2023 (7 obras)</span><span class="chev">▸</span></summary>
+          <div class="grid-catalog" id="catalog-grid-b"></div>
+        </details>
+        <details class="catalog-group">
+          <summary><span>2010–2016 (16 obras)</span><span class="chev">▸</span></summary>
+          <div class="grid-catalog" id="catalog-grid-c"></div>
+        </details>
+        <details class="catalog-group">
+          <summary><span>2004–2009 (7 obras)</span><span class="chev">▸</span></summary>
+          <div class="grid-catalog" id="catalog-grid-d"></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="pareceres">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><p class="num">05 · Pareceres</p></div>
+        <h2>Pareceres para publicação em editoras</h2>
+      </div>
+      <ul class="ledger reveal" id="pareceres-list"></ul>
+    </div>
+  </section>
+
+  <section id="revisao">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><p class="num">06 · Revisão</p></div>
+        <h2>Revisão de textos, copidesque e participação em bancas de redação</h2>
+      </div>
+      <ul class="ledger reveal" id="revisao-list"></ul>
+    </div>
+  </section>
+
+  <section id="docencia">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><p class="num">07 · Docência</p></div>
+        <h2>Docência, cursos e residência no exterior</h2>
+      </div>
+      <div class="prose reveal">
+        <p>Ministrou cursos e oficinas com base na canção popular brasileira, em instituições como SESC (Unidades: 24 de Maio e Centro de Pesquisa e Formação), Centro Interdepartamental de Línguas da FFLCH (Universidade de São Paulo), Biblioteca Mário de Andrade, Casa Guilherme de Almeida, e Centro Cultural Escrevedeira. Lecionou língua inglesa no SENAC de São Paulo e na Associação Alumni de São Paulo, e Literatura Brasileira no St. Clare's International College (Oxford, Inglaterra).</p>
+        <p>Residência no exterior: Experiência de residência e imersão cultural em Oxford, Inglaterra (2001–2003), Paris, França (1993–1995), Londres e Israel (1987–1989).</p>
+        <div class="residencies">
+          <span>Oxford, Inglaterra — 2001–2003</span>
+          <span>Paris, França — 1993–1995</span>
+          <span>Londres e Israel — 1987–1989</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="contact-band">
+  <div class="wrap">
+    <p class="eyebrow">Contato</p>
+    <h2>Disponível para novos projetos de tradução, pareceres e revisão editorial.</h2>
+    <p>Para propostas de tradução, pareceres editoriais, copidesque ou revisão de textos, escreva diretamente.</p>
+    <div class="contact-actions">
+      <a class="big-mail" href="mailto:luisgfragoso@gmail.com">luisgfragoso@gmail.com →</a>
+      <a class="btn-outline-inverse" href="mailto:luisgfragoso@gmail.com?subject=Solicita%C3%A7%C3%A3o%20de%20curr%C3%ADculo">Solicitar currículo</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>Luis Gonzaga Fragoso — Tradutor, professor e pesquisador</span>
+    <a href="#top">Voltar ao topo ↑</a>
+  </div>
+</footer>
+
+<script>
+  function cov(id,w){ return "assets/covers/" + id + ".jpg"; }
+
+  var FEATURED = [
+    ["04","Solitude","O poder e a ciência de estar a sós","Netta Weinstein, Heather Hansen e Thuy-vy T. Nguyen — Ed. Vozes, no prelo"],
+    ["07","Estátuas nuas, gladiadores gordos e elefantes de guerra","Uma viagem pelo cotidiano grego e romano da Antiguidade","Garrett Ryan — Ed. Vozes, 2026"],
+    ["09","Filosofia helenística e romana","Volume 2 da série Uma história da filosofia sem lacunas","Peter Adamson — Ed. Vozes, 2025"],
+    ["10","O profeta","","Kahlil Gibran — Ed. Vozes, 2024"],
+    ["11","Elogio do fracasso","Desafiando a cultura do sucesso","Costica Bradatan — Vozes, 2024"],
+    ["15","1984","","George Orwell — Vozes, Coleção Vozes de Bolso, 2022"],
+    ["18","Summerhill","Uma infância com liberdade","Matthew Appleton — Summus Editorial, 2017"],
+    ["22","Keith Richards","Uma vida rock 'n' roll","Bill Milkowski — Nova Fronteira, 2013"]
+  ];
+
+  var CATALOG = [
+    ["01","Como viver","Os ensinamentos da Regra de São Bento sobre felicidade, propósito e vida comunitária","Judith Valente — Editora Vozes, no prelo"],
+    ["02","Ansiedade","Dicas e técnicas para lidar com a ansiedade em situações de emergência","Claire Chamberlain — Ed. Vozes, no prelo"],
+    ["03","Autocuidado","Dicas e técnicas para o cuidado com a mente, o corpo e o espírito","Anna Barnes — Ed. Vozes, no prelo"],
+    ["04","Solitude","O poder e a ciência de estar a sós","Netta Weinstein et al. — Ed. Vozes, no prelo"],
+    ["05","Sobre direitos humanos","","Osho — Ed. Best-Seller, 2026"],
+    ["06","Como se comunicar como um budista","","Cynthia Kane — Ed. Vozes, no prelo"],
+    ["07","Estátuas nuas, gladiadores gordos e elefantes de guerra","","Garrett Ryan — Vozes, 2026"],
+    ["08","Felicidade em ação","Um guia filosófico para a vida plena","Adam Adatto Sandel — Ed. Best-Seller, 2025"],
+    ["09","Filosofia helenística e romana","Volume 2 da série Uma história da filosofia sem lacunas","Peter Adamson — Vozes, 2025"],
+    ["10","O profeta","","Kahlil Gibran — Vozes, 2024"],
+    ["11","Elogio do fracasso","Desafiando a cultura do sucesso","Costica Bradatan — Vozes, 2024"],
+    ["12","O caminho essencial","","Neale Donald Walsch — Best-Seller, 2023"],
+    ["13","Voar, cair, ser apanhado","","Henri Nouwen — Vozes, 2023"],
+    ["14","Comunidade","","Henri Nouwen — Vozes, 2023"],
+    ["15","1984","","George Orwell — Vozes, 2022"],
+    ["16","O Eneagrama do Mulá Nasrudin","A partir do espanhol, com Rodrigo Usba","David Barba — Vozes, 2022"],
+    ["17","A voz interior do amor","","Henri Nouwen — Vozes, 2021"],
+    ["18","Summerhill","Uma infância com liberdade","Matthew Appleton — Summus Editorial, 2017"],
+    ["19","Guias Lonely Planet – Brasil","Pool de tradutores","Lonely Planet — Globo, 2014"],
+    ["20","A cidade dos segredos","","Sasha Gould — Novo Conceito, 2014"],
+    ["21","Cozinha rápida e fácil com Lorraine Pascale","Pool de tradutores","Lorraine Pascale — Nova Fronteira, 2013"],
+    ["22","Keith Richards","Uma vida rock 'n' roll","Bill Milkowski — Nova Fronteira, 2013"],
+    ["23","Esperando por você","","Susane Colasanti — Novo Conceito, 2013"],
+    ["24","Guias Lonely Planet – Ilhas do Caribe","Pool de tradutores","Lonely Planet — Globo, 2013"],
+    ["25","Native Brazilians","Versão de Coisas de índio","Daniel Munduruku — Callis, 2012"],
+    ["26","Guias Lonely Planet – Califórnia","Pool de tradutores","Lonely Planet — Globo, 2012"],
+    ["27","Guias Lonely Planet – Londres","Pool de tradutores","Lonely Planet — Globo, 2012"],
+    ["28","Pura sabedoria","Coisas simples que transformam o dia a dia","Dean Cunningham — Integrare, 2012"],
+    ["29","Whole Lotta Led Zeppelin","A história da banda mais pesada de todos os tempos, pool de tradutores","Jon Bream (org.) — Agir, 2011"],
+    ["30","Os 7 mitos sobre o amor","","Mike George — Integrare, 2011"],
+    ["31","A era da ilusão","A diplomacia nuclear em tempos traiçoeiros, tradução em parceria","Mohamed ElBaradei — LeYa, 2011"],
+    ["32","Aumente a sua habilidade com os números","","Andrew Jeffrey — Publifolha, 2011"],
+    ["33","Mude!","Como ajustar o seu ponto de vista e tirar o melhor de todas as situações","Michael Heppel — Integrare, 2011"],
+    ["34","Viva com sabedoria","","Mike George — Integrare, 2010"],
+    ["35","O efeito Lolita","A sexualização das adolescentes pela mídia","M. Gigi Durkham — Larousse, 2009"],
+    ["36","Como ser extraordinário em um mundo comum","A filosofia samurai, tradução em parceria","Brian Klemmer — Larousse, 2009"],
+    ["37","Stálin, os nazistas e o Ocidente","","Laurence Rees — Larousse, 2009"],
+    ["38","A boa vida segundo Hemingway","","A. E. Hotchner — Larousse, 2008"],
+    ["39","Anjos – acreditar e receber","","Glennyce Eckersley e Gary Quinn — Larousse, 2008"],
+    ["40","The Beatles – A biografia","Pool de tradutores","Bob Spitz — Larousse, 2007"],
+    ["41","Introdução ao Tipo","","Isabel Briggs Myers — OPP Limited, de Oxford, Reino Unido, 2004"]
+  ];
+
+  var CREDENTIALS = [
+    ["Especialização (Master of Arts) em Língua, Literatura e Cultura Inglesas pela Oxford Brookes University, Inglaterra.","2003"],
+    ["Bacharelado em Letras/Português pela Universidade de São Paulo – USP.","2000"],
+    ["Exame de Credenciamento (tradução inglês-português) da ABRATES – Associação Brasileira de Tradutores.","dez. 2007"],
+    ["Diploma in Translation (inglês-português) do Institute of Linguists de Londres.","jan. 2003"],
+    ["CPE (Certificate of Proficiency in English) da University of Cambridge, Inglaterra (conceito A).","jun. 1999"],
+    ["DALF e DELF – Diplôme Approfondi et Diplôme d'Etudes en Langue Française, França.","1995"],
+    ["Certificate of Proficiency in English, University of Michigan, EUA.","1992"]
+  ];
+
+  var PARECERES = [
+    ["Letters to a young seeker – Departing thoughts from an elder, de Neale Donald Walsch, para a editora Best-Seller.","jan. 2026"],
+    ["O Eneagrama do Mulá Nasrudin, de David Barba (publicado pela editora Vozes).","2022"],
+    ["Música, inspiração e criatividade: Uma linguagem universal, de Jon-Roar Bjorkvold (publicado pela Summus Editorial).","2018"]
+  ];
+
+  var REVISAO = [
+    ["Revisão do livro Microdramas, de Gustavo Reiz (Summus Editorial).","2026"],
+    ["Copidesque/preparação de texto de A energia da vida, de Tony Robbins (Editora Best-Seller).","2023"],
+    ["Revisão de 30 livros para a editora Intermeios, de São Paulo.","2018–2022"],
+    ["Copidesque/preparação de texto (com Sérgio L. Mansur) de A educação para além do capital, de István Mészáros (Ed. Boitempo).","2005"],
+    ["Revisão de diversos livros para a Editora Publisher, de São Paulo.","2009–2014"],
+    ["Revisão de textos acadêmicos para a Revista Educação e Pesquisa da Faculdade de Educação da USP.","2014–2020"],
+    ["Participação no processo de avaliação de redações do ENEM nas funções de Supervisor de Equipe, Auxiliar de Supervisão e Avaliador (Cebraspe, Vunesp e FGV).","2012–2023"]
+  ];
+
+  function el(tag, cls, html){ var e=document.createElement(tag); if(cls) e.className=cls; if(html!=null) e.innerHTML=html; return e; }
+
+  var fg = document.getElementById("featured-grid");
+  FEATURED.forEach(function(b){
+    var card = el("article","fcard");
+    var cov = el("div","cov");
+    var img = document.createElement("img");
+    img.src = cov_url(b[0],400); img.alt = "Capa do livro " + b[1]; img.loading="lazy";
+    img.onerror = function(){ this.closest(".cov").style.background = "var(--paper-raised)"; this.remove(); };
+    cov.appendChild(img);
+    var body = el("div","body");
+    body.appendChild(el("div","ftitle", b[1]));
+    if(b[2]) body.appendChild(el("div","fsub", b[2]));
+    body.appendChild(el("div","fmeta", b[3]));
+    card.appendChild(cov); card.appendChild(body);
+    fg.appendChild(card);
+  });
+
+  function renderCatalogGroup(targetId, items){
+    var cg = document.getElementById(targetId);
+    items.forEach(function(b){
+      var card = el("article","ccard");
+      var cov = el("div","cov");
+      var img = document.createElement("img");
+      img.src = cov_url(b[0],240); img.alt = "Capa do livro " + b[1]; img.loading="lazy";
+      img.onerror = function(){ this.closest(".cov").style.background = "var(--paper-raised)"; this.remove(); };
+      cov.appendChild(img);
+      card.appendChild(cov);
+      card.appendChild(el("div","ctitle", b[1] + (b[2] ? " — " + b[2] : "")));
+      card.appendChild(el("div","cmeta", b[3]));
+      cg.appendChild(card);
+    });
+  }
+  // Grupos por período: 0-10 = 2024-2026 (11), 11-17 = 2017-2023 (7),
+  // 18-33 = 2010-2016 (16), 34-40 = 2004-2009 (7) — segue a ordem do catálogo original.
+  renderCatalogGroup("catalog-grid-a", CATALOG.slice(0,11));
+  renderCatalogGroup("catalog-grid-b", CATALOG.slice(11,18));
+  renderCatalogGroup("catalog-grid-c", CATALOG.slice(18,34));
+  renderCatalogGroup("catalog-grid-d", CATALOG.slice(34,41));
+
+  function cov_url(id,w){ return "assets/covers/" + id + ".jpg"; }
+
+  function renderList(target, data, withB){
+    var ul = document.getElementById(target);
+    data.forEach(function(item){
+      var li = el("li");
+      var lt = el("div","lt", withB ? "<b>"+item[0]+"</b>" : item[0]);
+      var ly = el("div","ly", item[1]);
+      li.appendChild(lt); li.appendChild(ly);
+      ul.appendChild(li);
+    });
+  }
+  renderList("pareceres-list", PARECERES, false);
+  renderList("revisao-list", REVISAO, false);
+
+  var cl = document.getElementById("cred-list");
+  CREDENTIALS.forEach(function(c,i){
+    var li = el("li");
+    li.appendChild(el("div","cred-idx", String(i+1).padStart(2,"0")));
+    var text = el("div","cred-text", c[0] + ' <span class="yr">' + c[1] + "</span>");
+    li.appendChild(text);
+    cl.appendChild(li);
+  });
+
+  if("IntersectionObserver" in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); } });
+    }, {threshold:.1});
+    document.querySelectorAll(".reveal").forEach(function(elx){ io.observe(elx); });
+  } else {
+    document.querySelectorAll(".reveal").forEach(function(elx){ elx.classList.add("in"); });
+  }
+</script>
