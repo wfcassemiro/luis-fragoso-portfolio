@@ -134,9 +134,10 @@
   .hero{ padding:clamp(3rem,8vw,6rem) 0 clamp(2.5rem,6vw,4rem); }
   .hero-grid{ display:grid; grid-template-columns: minmax(0,1fr) auto; gap:clamp(2rem,5vw,4rem); align-items:stretch; }
   .portrait-frame{
-    width:auto;
+    width:100%;
+    max-width: 320px;
     aspect-ratio:3/4;
-    margin-top:2rem;
+    margin-top:0;
     border:1px solid var(--line);
     padding:10px;
     background:var(--card-bg);
@@ -212,11 +213,13 @@
   .publishers{
     margin-top:2rem;
     padding-top:1.4rem;
+    text-align: center;
   }
   .publishers .eyebrow{ margin-bottom:.9rem; }
   .pub-scroll{
     display:flex;
     flex-wrap:wrap;
+    justify-content: center;
     row-gap:.9rem;
   }
   .pub-item{
