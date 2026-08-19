@@ -290,21 +290,45 @@
     margin-bottom:2.4rem;
     align-items:start;
   }
+  
+  /* Números destacados */
   .sec-head .num{
     font-family:"IBM Plex Mono", monospace;
-    font-size:.78rem;
-    letter-spacing:.1em;
-    color:var(--brass);
+    font-size:1rem;
+    font-weight: 600;
+    letter-spacing:.08em;
+    color:var(--accent-ink);
+    background:var(--brass);
+    padding: 0.35rem 0.8rem;
+    border-radius: var(--radius);
     text-transform:uppercase;
+    display: inline-block;
   }
+  
   .sec-head h2{ font-size:clamp(1.6rem,3vw,2.2rem); margin-top:.4rem; }
-  @media (max-width:760px){ .sec-head{ grid-template-columns:1fr; gap:.6rem; } }
+  @media (max-width:760px){ .sec-head{ grid-template-columns:1fr; gap:.8rem; } }
 
   .prose{ max-width:64ch; }
   .prose p{ margin:0 0 1.05rem; color:var(--ink); }
   .prose p:last-child{ margin-bottom:0; }
   .prose h3{ font-size:1.15rem; font-weight:560; margin:1.8rem 0 .7rem; }
   .prose h3:first-child{ margin-top:0; }
+
+  /* Respiro visual / Ícones de separação */
+  .icon-separator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2.5rem 0;
+    color: var(--brass);
+    opacity: 0.6;
+  }
+  .icon-separator::before, .icon-separator::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid var(--line);
+    margin: 0 1.5rem;
+  }
 
   /* credentials */
   .cred-list{ list-style:none; margin:0; padding:0; max-width:64ch; }
@@ -350,6 +374,19 @@
   .ccard .cov img{ width:100%; height:100%; object-fit:cover; }
   .ccard .ctitle{ font-size:.95rem; line-height:1.25; margin-top:.7rem; font-weight:500; }
   .ccard .cmeta{ font-family:"IBM Plex Mono", monospace; font-size:.7rem; color:var(--ink-faint); margin-top:.3rem; line-height:1.4; }
+
+  /* Ajustes Mobile para exibir 2 capas por linha */
+  @media (max-width: 640px) {
+    .grid-featured, .grid-catalog {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem 1rem;
+    }
+    .fcard .body { padding: 0.8rem; }
+    .fcard .ftitle { font-size: 1rem; }
+    .fcard .fsub { font-size: 0.85rem; }
+    .ccard .ctitle { font-size: 0.85rem; }
+    .ccard .cmeta { font-size: 0.65rem; }
+  }
 
   /* pareceres / revisão ledger */
   .ledger{ list-style:none; margin:0; padding:0; max-width:68ch; }
@@ -533,8 +570,25 @@
       </div>
       <div class="prose reveal">
         <p>Luis Gonzaga Fragoso é tradutor, professor, revisor e pesquisador com sólida formação acadêmica. Completou seu Master of Arts em Língua, Literatura e Cultura Inglesas na Oxford Brookes University (Inglaterra) e o Bacharelado em Letras/Português na Universidade de São Paulo (USP).</p>
+        
+        <div class="icon-separator">
+          <!-- Ícone de Pena (Escrita/Tradução) -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        </div>
+
         <p>Sua trajetória abrange a tradução de dezenas de obras de grande relevância nas áreas de história, música, sociologia, história da filosofia, biografias e espiritualidade, publicadas por prestigiosas casas editoriais como Editora Vozes, Best-Seller (Grupo Record), Summus Editorial, Nova Fronteira, Globo Livros, Larousse e Publifolha. Traduziu três obras de ficção.</p>
+        
+        <div class="icon-separator">
+          <!-- Ícone de Globo (Idiomas/Mundo) -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+
         <p>Além de tradutor, atua como parecerista editorial na avaliação de originais estrangeiros, na preparação de textos (copidesque) e na revisão de textos acadêmicos e de livros para o mercado editorial. Também ministra cursos e oficinas com base na canção popular brasileira, em instituições como o SESC e a Biblioteca Mário de Andrade. Durante 20 anos, atuou como professor de língua inglesa.</p>
+
+        <div class="icon-separator">
+          <!-- Ícone de Livro Aberto -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
 
         <h3>Perfil profissional</h3>
         <p>Completou o Master of Arts em Língua, Literatura e Cultura Inglesas na Oxford Brookes University (Inglaterra) e também o Bacharelado em Letras/Português na Universidade de São Paulo (USP). Tem sólida trajetória no mercado editorial brasileiro, com dezenas de obras traduzidas nas áreas de história, música, sociologia, história da filosofia, biografias e espiritualidade, entre outras. Traduziu três obras de ficção.</p>
